@@ -103,6 +103,7 @@ ln -s ~/configs/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 #+end_src
 * Tmux
 Perfect for storing terminal sessions.
+*Note:* Please install tmux plugin manager to load some plugins.
 #+begin_src bash :tangle deploy_files.sh
 cp -r ~/configs/tmux ~/.tmux
 ln -s ~/configs/tmux.conf ~/.tmux.conf
