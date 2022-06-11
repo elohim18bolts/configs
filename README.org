@@ -14,6 +14,7 @@
 - [[#lf][lf]]
 - [[#fonts][Fonts]]
 - [[#alacritty][Alacritty]]
+- [[#tmux][Tmux]]
 
 * First
 This config readme takes into account that this repo is clone into the $HOME path. So the absolute path of this repo is ~$HOME/configs~.
@@ -99,4 +100,10 @@ This is a robust terminal.
 #+begin_src bash :tangle deploy_files.sh
 ! [ -d ~/.config/alacritty ] && mkdir ~/.config/alacritty
 ln -s ~/configs/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+#+end_src
+* Tmux
+Perfect for storing terminal sessions.
+#+begin_src bash :tangle deploy_files.sh
+cp -r ~/configs/tmux ~/.tmux
+ln -s ~/configs/tmux.conf ~/.tmux.conf
 #+end_src
