@@ -1,3 +1,4 @@
+# Created 2022-06-11 Sat 18:44
 #+title: Some Config Files For Faster Development
 #+author: elohim18bolts
 #+description: Config files repo.
@@ -25,25 +26,26 @@ To install Emacs run the following commands depending on the distribution:
 - *GNU Linux*
   - Debian, Ubuntu
     #+begin_src bash
-sudo apt-get install emacs
+    sudo apt-get install emacs
     #+end_src
   - Archlinux
     #+begin_src bash
-sudo pacman -S emacs
+    sudo pacman -S emacs
     #+end_src
 - *MacOs*
   #+begin_src bash
-brew install --cask emacs
+  brew install --cask emacs
   #+end_src
 
 * Doom Emacs
 Install emacs doom because I like it.
 ** Dependencies
-  - Git
-  - Emacs
-  - Ripgrep
-  - GNU find
+- Git
+- Emacs
+- Ripgrep
+- GNU find
 - Optional: fd
+
 ** Installation
 #+begin_src bash
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
@@ -58,7 +60,7 @@ git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
   To diagnose common issues with your system and config.
 ** Doom configs links
 Create static links from this repo to the respective paths in the home.
-#+begin_src bash :tangle deploy_files.sh
+#+begin_src bash
 #!/bin/bash
 rm -r ~/.doom.d/init.el ~/.doom.d/config.el ~/.doom/packages.el
 ln -s $HOME/configs/emacs/init.el ~/.doom.d/init.el
@@ -70,19 +72,19 @@ cp -r emacs/tab-jump-out ~/.doom.d/
 * Starship
 This is an awesome package writen in rust to customize the terminal prompt.
 The configuration file can be placed at =~/.config/starship.toml=.
-#+begin_src bash :tagle deploy_files.sh
+#+begin_src bash
 ln -s ~/configs/starship.toml ~/.config/starship.toml
 #+end_src
 * Leftwm
 Window manager to speed up typing and development in general.
-#+begin_src bash :tangle deploy_files.sh
+#+begin_src bash
 ! [ -d ~/.config/leftwm ] &&  mkdir -p ~/.config/leftwm
 ln -s ~/configs/leftwm/config.toml ~/.config/leftwm/config.toml
 cp -r ~/configs/leftwm/themes ~/.config/leftwm/themes
 #+end_src
 * lf
 Great terminal file manager.
-#+begin_src bash :tangle deploy_files.sh
+#+begin_src bash
 os_plat=$(uname -s)
 ! [ -d ~/.config/lf ] && mkdir -p ~/.config/lf
 if [ $os_plat = Darwin ] then
@@ -94,13 +96,13 @@ if [ $os_plat = Darwin ] then
 #+end_src
 * Fonts
 I like this fonts.
-#+begin_src bash :tangle deploy_files.sh
+#+begin_src bash
 ! [ -d ~/.local/share/fonts ] && mkdir -p ~/.local/share/fonts
 cp -r ~/configs/fonts ~/.local/share/fonts
 #+end_src
 * Alacritty
 This is a robust terminal.
-#+begin_src bash :tangle deploy_files.sh
+#+begin_src bash
 ! [ -d ~/.config/alacritty ] && mkdir ~/.config/alacritty
 ln -s ~/configs/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 #+end_src
@@ -108,6 +110,6 @@ ln -s ~/configs/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 Perfect for storing terminal sessions.
 
 *Note:* Please install tmux plugin manager to load some plugins.
-#+begin_src bash :tangle deploy_files.sh
+#+begin_src bash
 ln -s ~/configs/tmux.conf ~/.tmux.conf
 #+end_src
