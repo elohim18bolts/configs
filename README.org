@@ -7,6 +7,8 @@
 - [[#first][First]]
 - [[#emacs][Emacs]]
 - [[#doom-emacs][Doom Emacs]]
+  - [[#dependencies][Dependencies]]
+  - [[#installation][Installation]]
   - [[#doom-cli][Doom cli]]
   - [[#doom-configs-links][Doom configs links]]
 - [[#starship][Starship]]
@@ -17,7 +19,7 @@
 - [[#tmux][Tmux]]
 
 * First
-This config readme takes into account that this repo is clone into the $HOME path. So the absolute path of this repo is =$HOME/configs=.
+This config readme takes into account that this repo is clone into the =$HOME= path. So the absolute path of this repo is =$HOME/configs=.
 * Emacs
 To install Emacs run the following commands depending on the distribution:
 - *GNU Linux*
@@ -36,12 +38,13 @@ brew install --cask emacs
 
 * Doom Emacs
 Install emacs doom because I like it.
-- Dependencies
+** Dependencies
   - Git
   - Emacs
   - Ripgrep
   - GNU find
-  - Optional: fd
+- Optional: fd
+** Installation
 #+begin_src bash
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
@@ -66,7 +69,7 @@ cp -r emacs/tab-jump-out ~/.doom.d/
 #+end_src
 * Starship
 This is an awesome package writen in rust to customize the terminal prompt.
-The configuration file can be placed at =/.config/starship.toml=.
+The configuration file can be placed at =~/.config/starship.toml=.
 #+begin_src bash :tagle deploy_files.sh
 ln -s ~/configs/starship.toml ~/.config/starship.toml
 #+end_src
