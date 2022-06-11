@@ -1,0 +1,102 @@
+#+title: Some Config Files For Faster Development
+#+author: elohim18bolts
+#+description: Config files repo.
+
+
+* Contents :toc:
+- [[#first][First]]
+- [[#emacs][Emacs]]
+- [[#doom-emacs][Doom Emacs]]
+  - [[#doom-cli][Doom cli]]
+  - [[#doom-configs-links][Doom configs links]]
+- [[#starship][Starship]]
+- [[#leftwm][Leftwm]]
+- [[#lf][lf]]
+- [[#fonts][Fonts]]
+- [[#alacritty][Alacritty]]
+
+* First
+This config readme takes into account that this repo is clone into the $HOME path. So the absolute path of this repo is ~$HOME/configs~.
+* Emacs
+To install Emacs run the following commands depending on the distribution:
+- *GNU Linux*
+  - Debian, Ubuntu
+    #+begin_src bash
+    sudo apt-get install emacs
+    #+end_src
+  - Archlinux
+    #+begin_src bash
+sudo pacman -S emacs
+    #+end_src
+- *MacOs*
+    #+begin_src bash
+brew install --cask emacs
+    #+end_src
+
+* Doom Emacs
+Install emacs doom because I like it.
+- Dependencies
+  - Git
+  - Emacs
+  - Ripgrep
+  - GNU find
+  - Optional: fd
+#+begin_src bash
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+#+end_src
+** Doom cli
+- *~doom sync~*
+   To synchronize your private config with Doom by installing missing packages, removing orphaned packages, and regenerating caches. Run this whenever you modify your private init.el or packages.el, or install/remove an Emacs package through your OS package manager (e.g. mu4e or agda).
+- *~doom upgrade~*
+  To update Doom to the latest release & all installed packages.
+- *~doom doctor~*
+   To diagnose common issues with your system and config.
+** Doom configs links
+Create static links from this repo to the respective paths in the home.
+#+begin_src bash :tangle deploy_files.sh
+#!/bin/bash
+rm -r ~/.doom.d/init.el ~/.doom.d/config.el ~/.doom/packages.el
+ln -s $HOME/configs/emacs/init.el ~/.doom.d/init.el
+ln -s $HOME/configs/emacs/config.el ~/.doom.d/config.el
+ln -s $HOME/configs/org-bullets.el ~/.doom.d/org-bullets.el
+ln -s $HOME/configs/packages.el ~/.doom.d/packages.el
+cp -r emacs/tab-jump-out ~/.doom.d/
+#+end_src
+* Starship
+This is an awesome package writen in rust to customize the terminal prompt.
+The configuration file can be placed at ~~/.config/starship.toml~.
+#+begin_src bash :tagle deploy_files.sh
+ln -s ~/configs/starship.toml ~/.config/starship.toml
+#+end_src
+* Leftwm
+Window manager to speed up typing and development in general.
+#+begin_src bash :tangle deploy_files.sh
+! [ -d ~/.config/leftwm ] &&  mkdir -p ~/.config/leftwm
+ln -s ~/configs/leftwm/config.toml ~/.config/leftwm/config.toml
+cp -r ~/configs/leftwm/themes ~/.config/leftwm/themes
+#+end_src
+* lf
+Great terminal file manager.
+  #+begin_src bash :tangle deploy_files.sh
+os_plat=$(uname -s)
+! [ -d ~/.config/lf ] && mkdir -p ~/.config/lf
+if [ $os_plat = Darwin ] then
+     ln -s ~/configs/lf/lfrc_mac ~/.config/lf/lfrc
+elif [ $os_plat = Linux ] then
+     ln -s ~/configs/lf/lfrc ~/.config/lf/lfrc
+ln -s ~/configs/lf/scope ~/.config/lf/scope
+ln -s ~/configs/lf/cleaner ~/.config/lf/cleaner
+  #+end_src
+* Fonts
+I like this fonts.
+#+begin_src bash :tangle deploy_files.sh
+! [ -d ~/.local/share/fonts ] && mkdir -p ~/.local/share/fonts
+cp -r ~/configs/fonts ~/.local/share/fonts
+#+end_src
+* Alacritty
+This is a robust terminal.
+#+begin_src bash :tangle deploy_files.sh
+! [ -d ~/.config/alacritty ] && mkdir ~/.config/alacritty
+ln -s ~/configs/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+#+end_src

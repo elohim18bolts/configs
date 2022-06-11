@@ -1,32 +1,114 @@
-# Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
+#Inserts a blank line between shell prompts
+#add_newline = true
 
-
+# Customizing the prompt
 format = """
-👽 $username
-$all
-
-"""
-# Inserts a blank line between shell prompts
-add_newline = true
+$username\
+$hostname\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$cobol\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$crystal\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$shell\
+[$character](bold green)"""
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character] # The name of the module we are configuring is "character"
-success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
-# ~/.config/starship.toml
-[directory]
-format = "[$path]($style)[$read_only]($read_only_style) "
-home_symbol = "🏠"
-
+success_symbol = "[⇒](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
 
 [username]
-style_user = "blue bold"
-style_root = "red bold"
-format = "[$user at]($style) "
+style_user = "green bold"
+style_root = "black bold"
+format = "User [$user]($style) at "
 disabled = false
 show_always = true
 
-[sudo]
-style = "bold green"
-symbol = "🔥🦾"
+[directory]
+truncation_length = 30
+truncation_symbol = "…/"
+home_symbol = "🏠"
+
+# Configure if and how the time is shown
+[time]
 disabled = false
+time_format = "%T"
+format = "[$time](yellow) "
+
+[battery]
+disabled = false
+[[battery.display]]
+threshold = 20
+style = "bold red"
+
+[sudo]
+disabled = false
+style = "bold green"
+symbol = "💪"
+format = "[<SUDO> $symbol]($style)"
+
+[status]
+disabled = false
+style = "bg:blue"
+symbol = "🔴"
+map_symbol = true
+format = '[\[$symbol $common_meaning$signal_name$maybe_int\]]($style) '
+[rust]
+format = "via [🦀 $version](red bold) "

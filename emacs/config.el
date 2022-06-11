@@ -67,10 +67,21 @@
 ;;   `require' or `use-package'.
 ;; - `map!' for binding new keys
 
-(use-package flycheck
+(use-package! flycheck
   :ensure t
 )
-(use-package rustic
+
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
+(require 'tramp)
+(setq tramp-default-method "scp")
+
+(load! "org-bullets")
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(use-package! docker-compose-mode)
+(use-package! rustic
   :ensure t
   :config
   (require 'lsp-rust)
@@ -86,8 +97,16 @@
       "r r" 'rustic-cargo-run
       "r f" 'rustic-format-buffer
       ;;"r b" 'rustic-cargo-current-run
+      "p [" 'projectile-dired
+      "d i r" 'docker-image-run-selection
+      "d i l" 'docker-images
+      "d i d" 'docker-image-rm
+      "d i p" 'docker-image-pull
+      "d i t" 'docker-image-tag-selection
       )
 (global-set-key (kbd "<tab><tab>") #'tab-jump-out)
+
+(setq display-line-numbers-type 'relative)
 
 ;; To get information about any of these functions/macros, move the cursor over
 ;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
