@@ -47,11 +47,11 @@ git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 #+end_src
 ** Doom cli
-- *~doom sync~*
+- src_bash[:exports code]{doom sync}
    To synchronize your private config with Doom by installing missing packages, removing orphaned packages, and regenerating caches. Run this whenever you modify your private init.el or packages.el, or install/remove an Emacs package through your OS package manager (e.g. mu4e or agda).
-- *~doom upgrade~*
+- src_bash[:exports code]{doom upgrade}
   To update Doom to the latest release & all installed packages.
-- *~doom doctor~*
+- src_bash[:exports code] {doom doctor}
    To diagnose common issues with your system and config.
 ** Doom configs links
 Create static links from this repo to the respective paths in the home.
@@ -66,7 +66,7 @@ cp -r emacs/tab-jump-out ~/.doom.d/
 #+end_src
 * Starship
 This is an awesome package writen in rust to customize the terminal prompt.
-The configuration file can be placed at ~~/.config/starship.toml~.
+The configuration file can be placed at *src_bash{/.config/starship.toml}*.
 #+begin_src bash :tagle deploy_files.sh
 ln -s ~/configs/starship.toml ~/.config/starship.toml
 #+end_src
@@ -103,8 +103,8 @@ ln -s ~/configs/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 #+end_src
 * Tmux
 Perfect for storing terminal sessions.
+
 *Note:* Please install tmux plugin manager to load some plugins.
 #+begin_src bash :tangle deploy_files.sh
-cp -r ~/configs/tmux ~/.tmux
 ln -s ~/configs/tmux.conf ~/.tmux.conf
 #+end_src
