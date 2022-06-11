@@ -62,7 +62,12 @@ git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
 Create static links from this repo to the respective paths in the home.
 #+begin_src bash :tangle deploy_files.sh
 #!/bin/bash
-rm -r ~/.doom.d/init.el ~/.doom.d/config.el ~/.doom.d/packages.el
+initel="~/.doom.d/init.el"
+configel="~/doom.d/config.el"
+packagesel="~/doom.d/packages.el"
+[ -f $initel ] && mkdir -p ~/.doom.d/old && mv ~/.doom.d/init.el ~/.doom.d/old
+[ -f $configel ] && mv ~/.doom.d/config.el ~/.doom.d/old
+[ -f $packagesel ] && mv ~/.doom.d/packages.el ~/.doom.d/old
 ln -s $HOME/configs/emacs/init.el ~/.doom.d/init.el
 ln -s $HOME/configs/emacs/config.el ~/.doom.d/config.el
 ln -s $HOME/configs/org-bullets.el ~/.doom.d/org-bullets.el
@@ -73,25 +78,25 @@ cp -r emacs/tab-jump-out ~/.doom.d/
 This is an awesome package writen in rust to customize the terminal prompt.
 The configuration file can be placed at =~/.config/starship.toml=.
 #+begin_src bash :tangle deploy_files.sh
+[ -f ~/.config/starship.toml ] && mv ~/.config/starship.toml ~/.config/starship.toml.old
 ln -s ~/configs/starship.toml ~/.config/starship.toml
 #+end_src
 * Leftwm
 Window manager to speed up typing and development in general.
 #+begin_src bash :tangle deploy_files.sh
 ! [ -d ~/.config/leftwm ] &&  mkdir -p ~/.config/leftwm
-rm ~/.config/leftwm/config.toml
+[ -f ~/.config/leftwm/config.toml ] && mv ~/.config/leftwm/config.toml ~/.config/leftwm/config.toml.old
 ln -s ~/configs/leftwm/config.toml ~/.config/leftwm/config.toml
-cp -r ~/configs/leftwm/themes ~/.config/leftwm/themes
+mv ~/configs/leftwm/themes  ~/.config/leftwm/themes
 #+end_src
 * lf
 Great terminal file manager.
 #+begin_src bash :tangle deploy_files.sh
+[ -d ~/.config/lf ] && mv ~/.config/lf ~/.config/lf.old
+mkdir -p ~/.config/lf
 os_plat=$(uname -s)
-! [ -d ~/.config/lf ] && mkdir -p ~/.config/lf
 if [ $os_plat = Darwin ]; then
-   rm ~/.config/lf/lfrc
    ln -s ~/configs/lf/lfrc_mac ~/.config/lf/lfrc
-
 elif [ $os_plat = Linux ]; then
    ln -s ~/configs/lf/lfrc ~/.config/lf/lfrc
    ln -s ~/configs/lf/scope ~/.config/lf/scope
@@ -107,7 +112,8 @@ cp -r ~/configs/fonts ~/.local/share/fonts
 * Alacritty
 This is a robust terminal.
 #+begin_src bash :tangle deploy_files.sh
-! [ -d ~/.config/alacritty ] && mkdir ~/.config/alacritty
+[ -d ~/.config/alacritty ] && mv ~/.config/alacritty ~/.config/alacritty.old
+mkdir ~/.config/alacritty
 ln -s ~/configs/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 #+end_src
 * Tmux
@@ -115,6 +121,6 @@ Perfect for storing terminal sessions.
 
 *Note:* Please install tmux plugin manager to load some plugins.
 #+begin_src bash :tangle deploy_files.sh
-rm ~/.tmux.conf
+[ -f ~/.tmux.conf ] && mv ~/.tmux.conf ~/.tmux.conf.old
 ln -s ~/configs/tmux.conf ~/.tmux.conf
 #+end_src
