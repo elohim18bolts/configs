@@ -4,7 +4,7 @@
 #+description: Config files repo.
 
 
-* Contents :toc:
+* Table Of Contents :toc:
 - [[#first][First]]
 - [[#emacs][Emacs]]
 - [[#doom-emacs][Doom Emacs]]
