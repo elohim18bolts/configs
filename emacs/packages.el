@@ -12,6 +12,7 @@
 (package! tab-jump-out)
 (package! eglot)
 (package! lsp-mode)
+(package! ob-mermaid)
 (package! fzf)
 (package! yaml-mode)
 (package! docker-compose-mode)

@@ -8,7 +8,7 @@ packagesel="~/doom.d/packages.el"
 ln -s $HOME/configs/emacs/init.el ~/.doom.d/init.el
 ln -s $HOME/configs/emacs/config.el ~/.doom.d/config.el
 ln -s $HOME/configs/org-bullets.el ~/.doom.d/org-bullets.el
-ln -s $HOME/configs/packages.el ~/.doom.d/packages.el
+ln -s $HOME/configs/emacs/packages.el ~/.doom.d/packages.el
 cp -r emacs/tab-jump-out ~/.doom.d/
 
 [ -f ~/.config/starship.toml ] && mv ~/.config/starship.toml ~/.config/starship.toml.old
