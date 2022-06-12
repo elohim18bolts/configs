@@ -108,6 +108,14 @@
 
 (setq display-line-numbers-type 'relative)
 
+(org-babel-do-load-languages
+    'org-babel-load-languages
+    '((mermaid . t)
+      (scheme . t)
+      (your-other-langs . t)))
+
+(setq ob-mermaid-cli-path "/opt/homebrew/bin/mmdc")
+
 ;; To get information about any of these functions/macros, move the cursor over
 ;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
 ;; etc).

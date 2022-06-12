@@ -12,6 +12,7 @@
   - [[#installation][Installation]]
   - [[#doom-cli][Doom cli]]
   - [[#doom-configs-links][Doom configs links]]
+  - [[#diagrams][Diagrams]]
 - [[#starship][Starship]]
 - [[#leftwm][Leftwm]]
 - [[#lf][lf]]
@@ -74,6 +75,17 @@ ln -s $HOME/configs/org-bullets.el ~/.doom.d/org-bullets.el
 ln -s $HOME/configs/packages.el ~/.doom.d/packages.el
 cp -r emacs/tab-jump-out ~/.doom.d/
 #+end_src
+** Diagrams
+If you want to draw diagrams like the example below, install mermaid with homebrew =homebrew install mermaid-cli=.
+#+begin_src mermaid :file test.png
+sequenceDiagram
+A-->B: Works!
+
+#+end_src
+
+#+RESULTS:
+[[file:test.png]]
+
 * Starship
 This is an awesome package writen in rust to customize the terminal prompt.
 The configuration file can be placed at =~/.config/starship.toml=.
