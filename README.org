@@ -72,7 +72,7 @@ packagesel="~/doom.d/packages.el"
 ln -s $HOME/configs/emacs/init.el ~/.doom.d/init.el
 ln -s $HOME/configs/emacs/config.el ~/.doom.d/config.el
 ln -s $HOME/configs/org-bullets.el ~/.doom.d/org-bullets.el
-ln -s $HOME/configs/packages.el ~/.doom.d/packages.el
+ln -s $HOME/configs/emacs/packages.el ~/.doom.d/packages.el
 cp -r emacs/tab-jump-out ~/.doom.d/
 #+end_src
 ** Diagrams
@@ -99,7 +99,7 @@ Window manager to speed up typing and development in general.
 ! [ -d ~/.config/leftwm ] &&  mkdir -p ~/.config/leftwm
 [ -f ~/.config/leftwm/config.toml ] && mv ~/.config/leftwm/config.toml ~/.config/leftwm/config.toml.old
 ln -s ~/configs/leftwm/config.toml ~/.config/leftwm/config.toml
-mv ~/configs/leftwm/themes  ~/.config/leftwm/themes
+cp -r ~/configs/leftwm/themes  ~/.config/leftwm/themes
 #+end_src
 * lf
 Great terminal file manager.
