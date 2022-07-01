@@ -18,6 +18,8 @@ ln -s ~/configs/starship.toml ~/.config/starship.toml
 [ -f ~/.config/leftwm/config.toml ] && mv ~/.config/leftwm/config.toml ~/.config/leftwm/config.toml.old
 ln -s ~/configs/leftwm/config.toml ~/.config/leftwm/config.toml
 cp -r ~/configs/leftwm/themes  ~/.config/leftwm/themes
+#Adding current themes
+ln -s ~/.config/leftwm/themes/leftwm-theme-dracula-rounded ~/.config/leftwm/themes/current
 
 [ -d ~/.config/lf ] && mv ~/.config/lf ~/.config/lf.old
 mkdir -p ~/.config/lf
