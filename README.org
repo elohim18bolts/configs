@@ -105,7 +105,7 @@ ln -s ~/.config/leftwm/themes/leftwm-theme-dracula-rounded ~/.config/leftwm/them
 * lf
 Great terminal file manager.
 #+begin_src bash :tangle deploy_files.sh
-[ -d ~/.config/lf ] && mv ~/.config/lf ~/.config/lf.old
+[ -d ~/.config/lf ] && rm -rf ~/.config/lf
 mkdir -p ~/.config/lf
 os_plat=$(uname -s)
 if [ $os_plat = Darwin ]; then
@@ -125,7 +125,7 @@ cp -r ~/configs/fonts ~/.local/share/fonts
 * Alacritty
 This is a robust terminal.
 #+begin_src bash :tangle deploy_files.sh
-[ -d ~/.config/alacritty ] && mv ~/.config/alacritty ~/.config/alacritty.old
+[ -d ~/.config/alacritty ] && rm -rf ~/.config/alacritty
 mkdir ~/.config/alacritty
 ln -s ~/configs/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 #+end_src
