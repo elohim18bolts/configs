@@ -100,7 +100,8 @@ Window manager to speed up typing and development in general.
 ln -s ~/configs/leftwm/config.toml ~/.config/leftwm/config.toml
 [ ! -d ~/.config/leftwm/themes ] && cp -r ~/configs/leftwm/themes  ~/.config/leftwm/themes
 #Adding current themes
-[ -d ~/.config/leftwm/themes/current ] && rm -rf ~/.config/leftwm/themes/current && ln -s ~/.config/leftwm/themes/current ~/.config/leftwm/themes/leftwm-theme-dracula-rounded
+[ -d ~/.config/leftwm/themes/current ] && rm -rf ~/.config/leftwm/themes/current
+mv ~/.config/leftwm/themes/leftwm-theme-dracula-rounded ~/.config/leftwm/themes/current
 #+end_src
 
 #+RESULTS:
@@ -137,11 +138,11 @@ Perfect for storing terminal sessions.
 
 *Note:* Please install tmux plugin manager to load some plugins.
 #+begin_src bash :tangle deploy_files.sh
-[ -f ~/.tmux.conf ] && mv ~/.tmux.conf ~/.tmux.conf.old
+[ -f ~/.tmux.conf ] && rm ~/.tmux.conf
 ln -s ~/configs/tmux.conf ~/.tmux.conf
 #+end_src
 * ZSH
 Love this terminal.
 #+begin_src bash :tangle deploy_files.sh
-[ -f ~/.zshrc ] && mv ~/.zshrc ~/zshrc.old && ln -s ~/configs/zshrc ~/.zshrc
+[ -f ~/.zshrc ] && rm ~/.zshrc && ln -s ~/configs/zshrc ~/.zshrc
 #+end_src
