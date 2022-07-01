@@ -101,6 +101,8 @@ Window manager to speed up typing and development in general.
 [ -f ~/.config/leftwm/config.toml ] && mv ~/.config/leftwm/config.toml ~/.config/leftwm/config.toml.old
 ln -s ~/configs/leftwm/config.toml ~/.config/leftwm/config.toml
 cp -r ~/configs/leftwm/themes  ~/.config/leftwm/themes
+#Adding current themes
+ln -s ~/.config/leftwm/themes/leftwm-theme-dracula-rounded ~/.config/leftwm/themes/current
 #+end_src
 * lf
 Great terminal file manager.
