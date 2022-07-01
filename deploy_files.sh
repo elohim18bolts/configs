@@ -2,7 +2,7 @@
 [ -f ~/.doom.d/init.el ] && mv ~/.doom.d/init.el ~/.doom.d/init.el.old
 [ -f ~/.doom.d/config.el ] && mv ~/.doom.d/config.el ~/.doom.d/config.el.old
 [ -f ~/.doom.d/packages.el ] && mv ~/.doom.d/packages.el ~/.doom.d/packages.el.old
-[ -f ~/.doom.d/org-bullets.el ] && mv ~/.doom.d/org-bullets.el ~/.doom.d/org-bullets.el.old
+[ -f ~/.doom.d/org-bullets.el ] && rm ~/.doom.d/org-bullets.el
 ln -s $HOME/configs/emacs/init.el ~/.doom.d/init.el
 ln -s $HOME/configs/emacs/config.el ~/.doom.d/config.el
 ln -s $HOME/configs/org-bullets.el ~/.doom.d/org-bullets.el
@@ -17,7 +17,7 @@ ln -s ~/configs/starship.toml ~/.config/starship.toml
 ln -s ~/configs/leftwm/config.toml ~/.config/leftwm/config.toml
 [ ! -d ~/.config/leftwm/themes ] && cp -r ~/configs/leftwm/themes  ~/.config/leftwm/themes
 #Adding current themes
-ln -s ~/.config/leftwm/themes/leftwm-theme-dracula-rounded ~/.config/leftwm/themes/current
+[ -d ~/.config/leftwm/themes/current ] && rm -rf ~/.config/leftwm/themes/current && ln -s ~/.config/leftwm/themes/leftwm-theme-dracula-rounded ~/.config/leftwm/themes/current
 
 [ -d ~/.config/lf ] && rm -rf ~/.config/lf
 mkdir -p ~/.config/lf
