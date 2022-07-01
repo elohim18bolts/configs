@@ -2,7 +2,7 @@
 [ -f ~/.doom.d/init.el ] && mv ~/.doom.d/init.el ~/.doom.d/init.el.old
 [ -f ~/.doom.d/config.el ] && mv ~/.doom.d/config.el ~/.doom.d/config.el.old
 [ -f ~/.doom.d/packages.el ] && mv ~/.doom.d/packages.el ~/.doom.d/packages.el.old
-[ -f ~/.doom.d/org-bullets.el] && mv ~/.doom.d/org-bullets.el ~/.doom.d/org-bullets.el.old
+[ -f ~/.doom.d/org-bullets.el ] && mv ~/.doom.d/org-bullets.el ~/.doom.d/org-bullets.el.old
 ln -s $HOME/configs/emacs/init.el ~/.doom.d/init.el
 ln -s $HOME/configs/emacs/config.el ~/.doom.d/config.el
 ln -s $HOME/configs/org-bullets.el ~/.doom.d/org-bullets.el
