@@ -17,7 +17,7 @@ ln -s ~/configs/starship.toml ~/.config/starship.toml
 ! [ -d ~/.config/leftwm ] &&  mkdir -p ~/.config/leftwm
 [ -f ~/.config/leftwm/config.toml ] && mv ~/.config/leftwm/config.toml ~/.config/leftwm/config.toml.old
 ln -s ~/configs/leftwm/config.toml ~/.config/leftwm/config.toml
-mv ~/configs/leftwm/themes  ~/.config/leftwm/themes
+cp -r ~/configs/leftwm/themes  ~/.config/leftwm/themes
 
 [ -d ~/.config/lf ] && mv ~/.config/lf ~/.config/lf.old
 mkdir -p ~/.config/lf
@@ -39,3 +39,6 @@ ln -s ~/configs/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 [ -f ~/.tmux.conf ] && mv ~/.tmux.conf ~/.tmux.conf.old
 ln -s ~/configs/tmux.conf ~/.tmux.conf
+
+[ -f ~/.zshrc ] && mv ~/zshrc.old
+ln -s ~/configs/zshrc ~/.zshrc
