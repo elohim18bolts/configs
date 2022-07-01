@@ -64,7 +64,7 @@ git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
 Create static links from this repo to the respective paths in the home.
 #+begin_src bash :tangle deploy_files.sh
 #!/bin/bash
-[ -f ~/.doom.d/init.el ] && mv ~/.doom.init.el ~/.doom.d/init.el.old
+[ -f ~/.doom.d/init.el ] && mv ~/.doom.d/init.el ~/.doom.d/init.el.old
 [ -f ~/.doom.d/config.el ] && mv ~/.doom.d/config.el ~/.doom.d/config.el.old
 [ -f ~/.doom.d/packages.el ] && mv ~/.doom.d/packages.el ~/.doom.d/packages.el.old
 [ -f ~/.doom.d/org-bullets.el] && mv ~/.doom.d/org-bullets.el ~/.doom.d/org-bullets.el.old
