@@ -1,10 +1,8 @@
 #!/bin/bash
-initel="~/.doom.d/init.el"
-configel="~/doom.d/config.el"
 packagesel="~/doom.d/packages.el"
-[ -f $initel ] && mkdir -p ~/.doom.d/old && mv ~/.doom.d/init.el ~/.doom.d/old
-[ -f $configel ] && mv ~/.doom.d/config.el ~/.doom.d/old
-[ -f $packagesel ] && mv ~/.doom.d/packages.el ~/.doom.d/old
+[ -f ~/.doom.d/init.el ] && mkdir -p ~/.doom.d/old && mv ~/.doom.d/init.el ~/.doom.d/old
+[ -f ~/.doom.d/config.el ] && mv ~/.doom.d/config.el ~/.doom.d/old
+[ -f ~/doom.d/packages.el ] && mv ~/.doom.d/packages.el ~/.doom.d/old
 ln -s $HOME/configs/emacs/init.el ~/.doom.d/init.el
 ln -s $HOME/configs/emacs/config.el ~/.doom.d/config.el
 ln -s $HOME/configs/org-bullets.el ~/.doom.d/org-bullets.el
@@ -42,5 +40,4 @@ ln -s ~/configs/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 [ -f ~/.tmux.conf ] && mv ~/.tmux.conf ~/.tmux.conf.old
 ln -s ~/configs/tmux.conf ~/.tmux.conf
 
-[ -f ~/.zshrc ] && mv ~/zshrc.old
-ln -s ~/configs/zshrc ~/.zshrc
+[ -f ~/.zshrc ] && mv ~/zshrc.old && ln -s ~/configs/zshrc ~/.zshrc
