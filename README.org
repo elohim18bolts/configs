@@ -98,10 +98,9 @@ Window manager to speed up typing and development in general.
 [ ! -d ~/.config/leftwm ] &&  mkdir -p ~/.config/leftwm
 [ -f ~/.config/leftwm/config.toml ] && mv ~/.config/leftwm/config.toml ~/.config/leftwm/config.toml.old
 ln -s ~/configs/leftwm/config.toml ~/.config/leftwm/config.toml
-[ ! -d ~/.config/leftwm/themes ] && cp -r ~/configs/leftwm/themes  ~/.config/leftwm/themes
 #Adding current themes
 [ -d ~/.config/leftwm/themes/current ] && rm -rf ~/.config/leftwm/themes/current
-mv ~/.config/leftwm/themes/leftwm-theme-dracula-rounded ~/.config/leftwm/themes/current
+cp -r ~/configs/leftwm/themes/leftwm-theme-dracula-rounded ~/.config/leftwm/themes/current
 #+end_src
 
 #+RESULTS:
@@ -144,5 +143,6 @@ ln -s ~/configs/tmux.conf ~/.tmux.conf
 * ZSH
 Love this terminal.
 #+begin_src bash :tangle deploy_files.sh
-[ -f ~/.zshrc ] && rm ~/.zshrc && ln -s ~/configs/zshrc ~/.zshrc
+[ -f ~/.zshrc ] && rm ~/.zshrc
+ln -s ~/configs/zshrc ~/.zshrc
 #+end_src

@@ -15,10 +15,9 @@ ln -s ~/configs/starship.toml ~/.config/starship.toml
 [ ! -d ~/.config/leftwm ] &&  mkdir -p ~/.config/leftwm
 [ -f ~/.config/leftwm/config.toml ] && mv ~/.config/leftwm/config.toml ~/.config/leftwm/config.toml.old
 ln -s ~/configs/leftwm/config.toml ~/.config/leftwm/config.toml
-[ ! -d ~/.config/leftwm/themes ] && cp -r ~/configs/leftwm/themes  ~/.config/leftwm/themes
 #Adding current themes
 [ -d ~/.config/leftwm/themes/current ] && rm -rf ~/.config/leftwm/themes/current
-mv ~/.config/leftwm/themes/leftwm-theme-dracula-rounded ~/.config/leftwm/themes/current
+cp -r ~/configs/leftwm/themes/leftwm-theme-dracula-rounded ~/.config/leftwm/themes/current
 
 [ -d ~/.config/lf ] && rm -rf ~/.config/lf
 mkdir -p ~/.config/lf
@@ -41,4 +40,5 @@ ln -s ~/configs/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 [ -f ~/.tmux.conf ] && rm ~/.tmux.conf
 ln -s ~/configs/tmux.conf ~/.tmux.conf
 
-[ -f ~/.zshrc ] && rm ~/.zshrc && ln -s ~/configs/zshrc ~/.zshrc
+[ -f ~/.zshrc ] && rm ~/.zshrc
+ln -s ~/configs/zshrc ~/.zshrc
