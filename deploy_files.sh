@@ -8,6 +8,7 @@ ln -s $HOME/configs/emacs/config.el ~/.doom.d/config.el
 ln -s $HOME/configs/emacs/org-bullets.el ~/.doom.d/org-bullets.el
 ln -s $HOME/configs/emacs/packages.el ~/.doom.d/packages.el
 [ ! -d ~/.doom.d/tab-jump-out ] && cp -r $HOME/configs/emacs/tab-jump-out ~/.doom.d/
+~/.emacs.d/bin/doom sync
 
 [ -f ~/.config/starship.toml ] && mv ~/.config/starship.toml ~/.config/starship.toml.old
 ln -s ~/configs/starship.toml ~/.config/starship.toml
