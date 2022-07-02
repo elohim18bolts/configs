@@ -23,7 +23,7 @@
 ;;
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-(setq doom-font (font-spec :family "Menlo" :size 18 :weight 'normal))
+(setq doom-font (font-spec :family "SauceCodePro NF" :size 18 :weight 'bold))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -114,7 +114,7 @@
       (scheme . t)
       (your-other-langs . t)))
 
-(setq ob-mermaid-cli-path "/opt/homebrew/bin/mmdc")
+(setq ob-mermaid-cli-path "~/.doom.d/mermaid/node_modules/.bin/mmdc")
 
 ;; To get information about any of these functions/macros, move the cursor over
 ;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,

@@ -77,9 +77,11 @@ ln -s $HOME/configs/emacs/packages.el ~/.doom.d/packages.el
 #+end_src
 ** Diagrams
 If you want to draw diagrams like the example below, install mermaid with homebrew =homebrew install mermaid-cli=.
+
+Just position the cursor anywhere on the code block and then type =C-c C-c= to generate the image diagram.
 #+begin_src mermaid :file test.png
 sequenceDiagram
-A-->B: Works!
+A-->C: Works!
 
 #+end_src
 
