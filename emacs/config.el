@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-(setq user-full-name "John Doe"
-      user-mail-address "john@doe.com")
+(setq user-full-name "Elohim18bolts"
+      user-mail-address "fduran@fduran.xyz")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -18,13 +18,13 @@
 ;; - `doom-unicode-font' -- for unicode glyphs
 ;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
 ;;
+(setq doom-font (font-spec :family "Victor Mono" :size 16 :weight 'semi-bold))
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-(setq doom-font (font-spec :family "SauceCodePro NF" :size 18 :weight 'bold))
-
+;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
 ;; refresh your font settings. If Emacs still can't find your font, it likely
@@ -37,7 +37,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -66,32 +66,20 @@
 ;;   this file. Emacs searches the `load-path' when you load packages with
 ;;   `require' or `use-package'.
 ;; - `map!' for binding new keys
+;;
+;; To get information about any of these functions/macros, move the cursor over
+;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
+;; This will open documentation for it, including demos of how they are used.
+;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
+;; etc).
+;;
+;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
+;; they are implemented.
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
 
-(use-package! flycheck
-  :ensure t
-)
-
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-mode))
-
-(require 'tramp)
-(setq tramp-default-method "scp")
-
-(load! "org-bullets")
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-
-(use-package! docker-compose-mode)
-(use-package! rustic
-  :ensure t
-  :config
-  (require 'lsp-rust)
-
-  )
 ;;Some keybindings
 (map! :leader
-      :desc "Open eshell"
-      "s h" 'eshell
-      "j k" 'evil-normal-state
       "r t" 'rustic-cargo-test
       "r c" 'rustic-cargo-check
       "r r" 'rustic-cargo-run
@@ -104,21 +92,3 @@
       "d i p" 'docker-image-pull
       "d i t" 'docker-image-tag-selection
       )
-(global-set-key (kbd "<tab><tab>") #'tab-jump-out)
-
-(setq display-line-numbers-type 'relative)
-
-(org-babel-do-load-languages
-    'org-babel-load-languages
-    '((mermaid . t)
-      (scheme . t)
-      (your-other-langs . t)))
-
-(setq ob-mermaid-cli-path "~/.doom.d/mermaid/node_modules/.bin/mmdc")
-
-;; To get information about any of these functions/macros, move the cursor over
-;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
-;; etc).
-;;
-;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
-;; they are implemented.
