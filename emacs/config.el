@@ -91,4 +91,6 @@
       "d i d" 'docker-image-rm
       "d i p" 'docker-image-pull
       "d i t" 'docker-image-tag-selection
+      "b l"   'evil-next-buffer
+      "b h"   'evil-prev-buffer
       )
